@@ -1,0 +1,366 @@
+:root {
+    --color-1: #2f3240;
+}
+body {
+    font-family: sans-serif;
+    background-color: #e8eef3;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+a { 
+    text-decoration: none;
+}
+.container {
+    max-width: 1178px;
+    margin: auto;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.align-item-center {
+    align-items: center;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+/* Header */
+.header {
+    background-color: var(--color-1);
+    padding: 12px 0;
+    line-height: 1.5;
+}
+.header .logo,
+.header .nav {
+    padding: 0 15px
+}
+.header .logo a{
+    font-size: 30px;
+    color: #ffffff;
+    text-transform: capitalize;
+}
+.header .nav ul li {
+    display: inline-block;
+    margin-left: 40px;
+}
+.header .nav ul li a {
+    display: block;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    padding: 10px 0;
+    transition: all 0.5s ease;
+}
+.header .nav ul li a.active,
+.header .nav ul li a:hover {
+    color: #f3a93d;
+}
+.nav-toggler {
+    height: 34px;
+    width: 44px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    display: none;
+    margin-right: 15px;
+}
+.nav-toggler:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+.nav-toggler span {
+    height: 2px;
+    width: 20px;
+    background-color: var(--color-1);
+    display: block;
+    margin: auto;
+    position: relative;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+.nav-toggler.active span {
+    background-color: transparent;
+}
+.nav-toggler span::before,
+.nav-toggler span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-1);
+    transition: all 0.3s ease;
+}
+.nav-toggler span::before {
+    transform: translateY(-6px);
+    -webkit-transform: translateY(-6px);
+    -moz-transform: translateY(-6px);
+    -ms-transform: translateY(-6px);
+    -o-transform: translateY(-6px);
+}
+.nav-toggler.active span::before {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+.nav-toggler span::after {
+    transform: translateY(6px);
+    -webkit-transform: translateY(6px);
+    -moz-transform: translateY(6px);
+    -ms-transform: translateY(6px);
+    -o-transform: translateY(6px);
+}
+.nav-toggler.active span::after {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+}
+
+@media(max-width:991px) {
+    .nav-toggler {
+        display: block;
+    }
+    .header .nav {
+        width: 100%;
+        padding: 0;
+        max-height: 0px;
+        overflow: hidden;
+        visibility: hidden;
+        transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    .header .nav ul li {
+        display: block;
+        margin:0;
+    }
+    .header .nav.open {
+        visibility: visible;
+    }
+    .header .nav ul {
+        padding: 12px 15px 0;
+        margin-top: 12px;
+        border-top: 1px solid rgba(255,255,255,0.2); 
+        margin-bottom: 10px;
+    }
+    }
+
+    /* Gambar flip */
+
+.container2 {
+    width: 90%;
+    height: 1000px;
+    background-color: white;
+    margin: auto;
+    padding-top: 75px;
+}
+
+.flip-container {
+        -webkit-perspective: 1000;
+        -moz-perspective: 1000;
+        -o-perspective: 1000;
+        perspective: 1000;
+        border: 2px solid #2f3240s;
+        margin: auto;
+
+} 
+
+.flip-container:hover .flipper, 
+.flip-container.hover .flipper {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+}
+
+.flip-container, .pic, .back {
+    width: 200px;
+    height: 297px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.flipper {
+        -webkit-transition: 0.6s;
+        -webkit-transform-style: preserve-3d;
+        -moz-transition: 0.6s;
+        -moz-transform-style: preserve-3d;
+        -o-transition: 0.6s;
+        -o-transform-style: preserve-3d;
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+.pic, .back {
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+}
+.pic {
+        background: url(/explosionputih.png) 50% 50% no-repeat;
+        z-index: 2;
+}
+.back {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+        background: #f8f8f8;
+        -ms-transform: rotateY(180deg);
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+}
+.img-logo {
+        background: url(/explosioncoklat.png) no-repeat;
+        position: absolute;
+        width: 200px;
+        height: 297px;
+        border-radius: 20;
+        -webkit-border-radius: 20;
+        -moz-border-radius: 20;
+        -ms-border-radius: 20;
+        -o-border-radius: 20;
+}
+.back-desc {
+        font-weight: bold;
+        position: absolute;
+        top: 200px;text-align: center;
+        left: 0;right: 0;font-size: 25px;
+        text-shadow: 0.1em 0.1em 0.05em #C0C0C0;
+        font-family: Lato;color: #00304a;
+        background: linear-gradient(left, transparent 0%,red 50%,transparent 100%);
+        background:-webkit-linear-gradient(left, transparent 0%,red 50%,transparent 100%);
+        background:-moz-linear-gradient(left, transparent 0%,red 50%,transparent 100%);
+        background:-o-linear-gradient(left, transparent 0%,red 50%,transparent 100%);}
+.back p {
+        position: absolute;
+        bottom: 50px;left: 0;right: 0;
+        text-align: center;padding: 0 20px;
+        font-family: arial;
+        line-height: 2em;color:#333;}
+
+        /* Teks */
+.main-judul {
+    text-align: center;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4f4e4d;
+    text-shadow: 2px 2px 2px;
+    margin-bottom: 20px;
+}
+
+.garis-bawah {
+    height: 3px;
+    width: 80%;
+    background-color: var(--color-1);
+    margin: auto;
+}
+
+.tentang {
+    width: 100%;
+    height: 170px;
+    background-color: yellow;
+}
+
+.background-judul {
+    width: 200px;
+    height: 30px;
+    border-radius: 30px;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+
+.tentang:hover .background-judul {
+    margin-left: 60px;
+    background-color: #2f3240;
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 40px;
+    margin-left: 10px;
+    font-weight: 700;
+    line-height: 30px;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+
+.tentang:hover h4 {
+    margin-left: 28px;
+    color: #e8eef3;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px/2px;
+    margin-left: 10px;
+    margin-top: 5px;
+    text-indent: 20px;
+}
+
+p span {
+    font-weight: bold;
+}
+
+@keyframes slideKanan {
+    0% {
+        opacity: 0;
+        margin-left: 0;
+        text-indent: 20px;
+    }
+    100% {
+        opacity: 1;
+        margin-left: 25px;
+        color: #ffffff;
+    }
+}
+
+@keyframes slideBackgroundJudul {
+    0% {
+        opacity: 0;
+        margin-left: 0;
+    }
+    100% {
+        opacity: 1;
+        margin-left: 60px;
+        background-color: #2f3240;
+    }
+}
